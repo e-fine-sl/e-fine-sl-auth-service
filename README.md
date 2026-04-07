@@ -60,3 +60,17 @@ npm run dev
 # 3. View Local running instance details
 # Typically defaults to: http://localhost:4000/
 ```
+
+## Deployment (Render)
+
+To deploy this microservice on Render, follow these steps:
+
+1. **Push to GitHub**: Make sure the `auth-service` code is pushed to your GitHub repository.
+2. **Create Web Service**: Open Render Dashboard, click **New +** and select **Web Service**.
+3. **Connect Repository**: Choose the GitHub repository containing your project.
+4. **Configure Settings**:
+   - **Root Directory**: If `auth-service` is inside a larger repository (monorepo), type `auth-service` here. If it is its own repository, leave it blank (`.`).
+   - **Build Command**: `npm install`
+   - **Start Command**: `npm start`
+5. **Environment Variables**: Scroll down to the Environment Variables section and add all the keys from your local `.env` file (e.g., `MONGO_URI`, `JWT_ACCESS_SECRET`, `RSA_PRIVATE_KEY_BASE64`, `INTERNAL_API_SECRET`). You do not need to add the `PORT` variable as Render manages it automatically.
+6. **Deploy**: Click **Create Web Service** to start the build and deployment process.
