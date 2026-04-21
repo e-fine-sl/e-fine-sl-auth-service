@@ -1,4 +1,4 @@
-﻿// controllers/auth.controller.js
+// controllers/auth.controller.js
 // Core authentication logic for the e-Fine SL auth microservice.
 // Handles: login, logout, token refresh, token verification, public key serving,
 //          and token expiry configuration management.
@@ -112,6 +112,7 @@ const login = async (req, res) => {
       accessToken,
       refreshToken,
       sessionToken,
+      idleTimeoutMinutes: tokenConfig.idle_timeout_minutes || 5,
       user: {
         userId:           user._id.toString(),
         name:             user.name,
